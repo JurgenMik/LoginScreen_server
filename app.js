@@ -15,10 +15,11 @@ mongoose.connection.on('error', err => {
 })
 
 const registerRoute = require('./routes/register');
+const loginRoute = require('./routes/login');
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use("/", registerRoute);
+app.use("/", registerRoute, loginRoute);
 
 
 const port = process.env.PORT || 3002;
